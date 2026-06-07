@@ -51,8 +51,9 @@ Core loop:
 4. During the chat, at random intervals, a user earns **Gift Points** — points they *cannot spend
    themselves*; only their current or past match recipients can spend them.
 5. Points accumulate in a **Marketplace** where users redeem them for real gifts ($5 gift cards,
-   etc.), funded by sponsored banner ads tiled as the chat wallpaper (Snapchat-style tiled corporate
-   logos). Ad revenue at standard banner CPM rates underwrites the gift-card cost.
+   etc.), funded by sponsored banner ads behind the chat. **One sponsor at a time** owns the chat
+   wallpaper (its badge tiled as a single-brand watermark), rotating between sponsors. Ad revenue at
+   standard banner CPM rates underwrites the gift-card cost.
 
 Admin operators can manage sponsors, review moderation logs, adjust point-drop rates, and monitor
 marketplace inventory.
@@ -639,11 +640,14 @@ Flow for `chat:message`:
 Buddy's primary ad unit and revenue source:
 - Fixed background layer behind the chat message list.
 - Fetches active sponsors via TanStack Query: `useQuery({ queryKey: ['/api/sponsors'] })`.
-- Tiles sponsor logos in a repeating grid (absolute-positioned grid of `<AdBanner />` tiles).
-- Each `<AdBanner />` shows logo + company name as a pill/badge, visually secondary to chat.
-- On mount, fires `POST /api/ad-impressions` for each visible sponsor tile (CPM logging) via an
-  `apiRequest` mutation.
-- `// DAY-OF CHANGE` on the tile-grid density constant.
+- **ONE sponsor is shown at a time** — the wallpaper features a single brand, tiled as a repeating
+  watermark of that one sponsor's badge (Snapchat-style, but single-brand), visually secondary to chat.
+- **Rotates** to the next active sponsor on an interval (`SPONSOR_ROTATE_MS = 30000`, `// DAY-OF CHANGE`),
+  so each sponsor gets exclusive airtime in turn. Start on a random sponsor so sessions vary.
+- Fires `POST /api/ad-impressions` **once per sponsor each time that sponsor becomes the active one**
+  (CPM logging) — never for sponsors not currently shown.
+- `<AdBanner />` renders the single active sponsor's logo + company name as a pill/badge.
+- `// DAY-OF CHANGE` on the tile-repeat count and the rotation interval.
 - Logos use `object-fit: contain` and soft opacity (`AD_WALLPAPER_OPACITY = 0.35`, `// DAY-OF CHANGE`).
 
 ---

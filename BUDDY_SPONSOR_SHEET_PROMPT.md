@@ -140,7 +140,8 @@ Keep cell size 512 x 192 px and the transparent-gap / no-text-outside-pills rule
 ## WIRING THE TILES INTO THE APP
 
 The `sponsors` table has a `logoUrl`; `AdBanner.tsx` renders it as `<img object-fit:contain>` and
-`SponsoredWallpaper.tsx` tiles them. After you generate + slice the sheet:
+`SponsoredWallpaper.tsx` shows **one sponsor at a time** — a single brand's badge tiled as a watermark,
+rotating to the next sponsor on an interval. After you generate + slice the sheet:
 
 **Option A — bundle as assets (cleanest for a fixed roster)**
 1. Slice into 24 transparent PNGs → `client/src/assets/sponsors/<brand>.png`.
@@ -160,6 +161,9 @@ The `sponsors` table has a `logoUrl`; `AdBanner.tsx` renders it as `<img object-
 
 ## NOTES
 
+- **One sponsor at a time:** the wallpaper features a single brand (its badge tiled as a watermark) and
+  rotates between sponsors every `SPONSOR_ROTATE_MS` (default 30s). An impression is logged once per
+  sponsor each time it becomes the active brand — not for every sponsor at once.
 - Keep tiles **monochrome mint** even though real ads are full-color — at 0.35 opacity behind chat, color
   logos look broken; stylized mint pills look designed. (Flip `AD_WALLPAPER_OPACITY` up if you switch to
   real color logos for a pitch.)
