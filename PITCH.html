@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buddy — Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --mint:#5FBF86; --mint-soft:#A9E0C0; --mint-mist:#E4F5EA;
+    --deep:#3E9B68; --pine:#1F4A36; --canvas:#F4FAF6; --white:#fff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Quicksand',system-ui,sans-serif; color:var(--pine);
+    background:var(--canvas); overflow:hidden;
+  }
+  .deck{height:100vh; width:100vw; position:relative}
+  .slide{
+    position:absolute; inset:0; display:none;
+    flex-direction:column; justify-content:center;
+    padding:6vh 9vw; animation:fade .35s ease;
+  }
+  .slide.active{display:flex}
+  @keyframes fade{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+
+  h1{font-size:clamp(40px,7vw,92px); line-height:1.02; font-weight:700}
+  h2{font-size:clamp(28px,4.2vw,52px); font-weight:700; margin-bottom:.5em}
+  h3{font-size:clamp(18px,2vw,26px); font-weight:600; color:var(--deep)}
+  p,li{font-size:clamp(16px,1.7vw,23px); line-height:1.5; color:#2c5742}
+  .lead{font-size:clamp(20px,2.4vw,30px); color:#2c5742}
+  .tag{color:var(--mint); font-weight:700}
+  .kicker{
+    display:inline-block; font-size:14px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--deep); font-weight:700; margin-bottom:18px;
+  }
+  ul{list-style:none; display:grid; gap:14px; margin-top:18px}
+  ul li{position:relative; padding-left:34px}
+  ul li::before{content:""; position:absolute; left:0; top:.55em; width:16px; height:16px;
+    border-radius:50%; background:var(--mint)}
+  .grid{display:grid; gap:22px; margin-top:26px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--white); border:1px solid var(--mint-soft); border-radius:22px;
+    padding:26px 24px; box-shadow:0 10px 34px rgba(31,74,54,.07)}
+  .card h3{margin-bottom:8px}
+  .stat{font-size:clamp(34px,5vw,64px); font-weight:700; color:var(--pine); line-height:1}
+  .stat small{display:block; font-size:15px; font-weight:600; color:#5a7d6c; margin-top:8px}
+  .pill{display:inline-block; background:var(--mint-mist); color:var(--deep);
+    border-radius:999px; padding:6px 16px; font-weight:600; font-size:15px; margin:4px 6px 0 0}
+  .muted{color:#6b8a7a; font-size:14px; margin-top:18px}
+  .placeholder{
+    border:2.5px dashed var(--mint); border-radius:24px; background:var(--mint-mist);
+    min-height:42vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:30px; margin-top:22px;
+  }
+  .placeholder .big{font-size:clamp(22px,3vw,34px); font-weight:700; color:var(--deep)}
+  .flow{display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; align-items:stretch}
+  .step{flex:1 1 0; min-width:150px; background:var(--white); border:1px solid var(--mint-soft);
+    border-radius:18px; padding:18px}
+  .step b{color:var(--deep)}
+  .arrow{align-self:center; color:var(--mint); font-size:26px}
+  .replit-band{margin-top:26px; background:var(--pine); color:#dff3e8; border-radius:20px; padding:20px 24px}
+  .replit-band b{color:#bfe9cf}
+  .footer{position:absolute; bottom:22px; left:9vw; right:9vw; display:flex;
+    justify-content:space-between; align-items:center; font-size:13px; color:#7c9a8a}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--mint);display:inline-block;margin-right:8px}
+  .hint{position:absolute; bottom:22px; left:50%; transform:translateX(-50%); font-size:12px; color:#9bb3a6}
+  .two-col{display:grid; grid-template-columns:1.1fr .9fr; gap:34px; align-items:center}
+  @media(max-width:820px){ .g2,.g3,.two-col{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1 · TITLE -->
+  <section class="slide active">
+    <div class="kicker">Anonymous chat · for students</div>
+    <h1>Buddy</h1>
+    <p class="lead" style="margin-top:18px">Meet your <span class="tag">kind of person.</span></p>
+    <p style="margin-top:22px; max-width:760px">
+      No names, no profiles, no pressure — just talk to someone new and find out who you actually click with.
+    </p>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>Find out who you click with.</span></div>
+  </section>
+
+  <!-- 2 · PAINPOINT -->
+  <section class="slide">
+    <div class="kicker">The problem</div>
+    <h2>Most people never learn <em>who they actually click with</em></h2>
+    <div class="two-col">
+      <div>
+        <ul>
+          <li>Dating &amp; networking apps are <b>high-stakes and profile-first</b> — you perform a curated self before a word is exchanged.</li>
+          <li>So conversations get judged on photos and bios, not on whether you two actually <b>vibe</b>.</li>
+          <li>People leave college having met thousands of peers but still can't name the <b>type of person</b> they connect with.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The gap</h3>
+        <p>There's no low-stakes place to just <b>talk</b> to someone new and notice
+        <i>"oh — I really like talking to people like this."</i></p>
+        <p class="muted">That noticing is the product.</p>
+      </div>
+    </div>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>02</span></div>
+  </section>
+
+  <!-- 3 · SOLUTION + REPLIT -->
+  <section class="slide">
+    <div class="kicker">The solution</div>
+    <h2>Anonymous 1-on-1 chats, kept kind by AI</h2>
+    <div class="flow">
+      <div class="step"><b>1 · Match</b><br/>Get paired anonymously — no names, no photos.</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>2 · Talk</b><br/>Just a conversation. See who you click with.</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>3 · Stay safe</b><br/>Claude screens every message; gentle nudges, never bans.</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>4 · Notice</b><br/>Learn the kind of people you actually enjoy.</div>
+    </div>
+    <div class="replit-band">
+      ⚡ <b>Built on Replit.</b> Full-stack JS on a single Replit instance — Replit Auth (verified <b>.edu</b>),
+      Replit PostgreSQL, real-time chat, and one-click Autoscale deploy. Zero infra to manage; we shipped the
+      whole product inside Replit.
+    </div>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>03</span></div>
+  </section>
+
+  <!-- 4 · MARKETPLACE + GIFT POINTS -->
+  <section class="slide">
+    <div class="kicker">Engagement engine</div>
+    <h2>Gift points you <em>can't</em> spend yourself</h2>
+    <div class="two-col">
+      <div>
+        <ul>
+          <li>As you chat, you randomly earn <b>gift points</b> — but only <b>your match</b> can spend them, not you.</li>
+          <li>A small, charming twist that rewards <b>showing up and being good company</b>.</li>
+          <li>Points cash out in the <b>Marketplace</b> for real rewards — $5 gift cards and more.</li>
+        </ul>
+        <div>
+          <span class="pill">Amazon $5</span><span class="pill">Spotify</span>
+          <span class="pill">Starbucks</span><span class="pill">Venmo</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Why it works</h3>
+        <p>You can't farm your own rewards — so the only way to "win" is to <b>have good conversations</b>.
+        Generosity, retention, and kindness all become the same action.</p>
+      </div>
+    </div>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>04</span></div>
+  </section>
+
+  <!-- 5 · BANNER ADS / REVENUE -->
+  <section class="slide">
+    <div class="kicker">How we make money</div>
+    <h2>Sponsored banner ads fund the gift cards</h2>
+    <div class="two-col">
+      <div>
+        <ul>
+          <li><b>One sponsor at a time</b> owns the chat wallpaper — a single brand tiled softly behind the
+            conversation, rotating between sponsors.</li>
+          <li>Every appearance is logged as a <b>CPM impression</b> — standard banner ad economics.</li>
+          <li>That ad revenue <b>underwrites the gift cards</b>: brands pay to reach students; students get
+            real rewards; we keep the spread.</li>
+        </ul>
+        <p class="muted">Sponsors and gift-card merchants are the same brands students already love.</p>
+      </div>
+      <div class="card">
+        <h3>The flywheel</h3>
+        <p><b>Ads</b> → fund <b>gift cards</b> → drive <b>chats</b> → create <b>ad impressions</b> → more ads.</p>
+      </div>
+    </div>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>05</span></div>
+  </section>
+
+  <!-- 6 · MARKET SIZE -->
+  <section class="slide">
+    <div class="kicker">Market size</div>
+    <h2>Start with US students, expand outward</h2>
+    <div class="grid g3">
+      <div class="card"><div class="stat">~19M<small>TAM — US higher-ed students (NCES, approx.)</small></div></div>
+      <div class="card"><div class="stat">~5M<small>SAM — students at .edu schools we onboard first</small></div></div>
+      <div class="card"><div class="stat">250K<small>SOM — realistic year-1 active users (5% of SAM)</small></div></div>
+    </div>
+    <p style="margin-top:24px">
+      College is the perfect wedge: dense <b>.edu</b> networks, advertisers who pay a premium to reach
+      18–24s, and a built-in reason to meet new people every semester. Natural expansion: new grads → young
+      professionals → global tertiary (<b>~250M</b> students worldwide).
+    </p>
+    <p class="muted">Figures are estimates for illustration; SAM/SOM scale with school rollout.</p>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>06</span></div>
+  </section>
+
+  <!-- 7 · PROFITABILITY -->
+  <section class="slide">
+    <div class="kicker">Profitability</div>
+    <h2>Ad revenue per user &gt; reward cost per user</h2>
+    <div class="grid g3">
+      <div class="card"><div class="stat">~$2.50<small>CPM per 1,000 sponsor impressions</small></div></div>
+      <div class="card"><div class="stat">~$3–4<small>Est. ad revenue / active user / month</small></div></div>
+      <div class="card"><div class="stat">~$1<small>Est. gift-card payout / active user / month</small></div></div>
+    </div>
+    <div class="card" style="margin-top:22px">
+      <h3>Contribution margin is positive — and tunable</h3>
+      <p>Both levers are dials we control in config: the <b>point-drop rate</b> sets reward cost, and
+      <b>impressions × CPM</b> sets revenue. We can hold payouts below ad income at any scale.</p>
+    </div>
+    <p class="muted">Illustrative unit economics; assumptions are configurable per market.</p>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>07</span></div>
+  </section>
+
+  <!-- 8 · SOCIAL PROOF (PLACEHOLDER) -->
+  <section class="slide">
+    <div class="kicker">Social proof</div>
+    <h2>We asked 20 students. They want this.</h2>
+    <div class="placeholder">
+      <div class="big">[ Survey results — 20 responses ]</div>
+      <p style="margin-top:12px; max-width:620px">
+        Drop the form screenshot or key stats here — e.g. “__% said they struggle to know who they click
+        with,” “__% would try an anonymous chat,” “__ would chat weekly.”
+      </p>
+    </div>
+    <div class="footer"><span><span class="dot"></span>Buddy</span><span>08</span></div>
+  </section>
+
+</div>
+
+<div class="hint">← → or Space to navigate · F for fullscreen</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = 0;
+  function show(n){
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown'){ e.preventDefault(); show(i+1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); show(i-1); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(slides.length-1); }
+    else if (e.key.toLowerCase() === 'f'){
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+  document.addEventListener('click', e => { if(!e.target.closest('a')) show(i+1); });
+</script>
+</body>
+</html>
