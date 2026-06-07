@@ -1,0 +1,114 @@
+/* ── PERSEUS GRAPH NODE ────────────────────────────────────────────────────
+   FILE:        client/src/index.css
+   DOMAIN:      ui
+   CONCEPT:     Tailwind layers + brand CSS variables + the gentle animation keyframes
+   RELATIONS:   imported once by main.tsx; motion classes used by BuddyAnim.tsx
+   PURPOSE:     Global styles, design tokens (mirror tailwind.config.ts), and calm motion.
+   LLM EDIT GUIDE: Keep motion gentle per BUDDY_BRAND_AESTHETIC.md §6. Mirror color tokens with
+                   tailwind.config.ts. All motion is disabled under prefers-reduced-motion.
+   DAY-OF CHANGES: tweak --mint, or animation durations below.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mint: #5fbf86; /* DAY-OF CHANGE: the single brand color (mirror in tailwind.config.ts) */
+  --mint-soft: #a9e0c0;
+  --mint-deep: #3e9b68;
+  --pine: #1f4a36;
+  --canvas: #f4faf6;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--canvas);
+  color: var(--pine);
+  font-family: 'Quicksand', 'Nunito', 'Baloo 2', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Gentle motion (calm, never bouncy-frantic) — brand §6 ── */
+@keyframes anim-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+@keyframes anim-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6%);
+  }
+}
+@keyframes anim-wave {
+  0% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(-8deg);
+  }
+}
+@keyframes anim-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes anim-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.anim-breathe {
+  animation: anim-breathe 3s ease-in-out infinite;
+}
+.anim-bob {
+  animation: anim-bob 2.4s ease-in-out infinite;
+}
+.anim-wave {
+  transform-origin: bottom center;
+  animation: anim-wave 0.4s ease-in-out 3;
+}
+.anim-pop {
+  animation: anim-pop 0.35s ease-out;
+}
+.anim-spin {
+  animation: anim-spin 1s linear infinite;
+}
+
+/* Respect reduced-motion: freeze every Buddy animation. */
+@media (prefers-reduced-motion: reduce) {
+  [class^='anim-'],
+  [class*=' anim-'] {
+    animation: none !important;
+  }
+}
+
+/* Subtle scrollbar so chat feels calm. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--mint-soft) transparent;
+}
