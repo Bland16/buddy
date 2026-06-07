@@ -1,43 +1,43 @@
-# BUDDY — Sponsor Banner Tiles · Sprite Sheet Prompt
+# BUDDY — Sponsor Logos · Sprite Sheet Prompt
 
-> Generates the **tiled sponsor badges** that sit behind the chat (the `SponsoredWallpaper`). Companion
-> to `BUDDY_SPRITE_SHEET_PROMPT.md` (mascot/icons). The roster is chosen so **every sponsor is also a
-> realistic gift-card partner** — the same brands fund the marketplace, so "ad CPM pays for the gift
-> cards" holds together.
-
----
-
-## ⚠️ READ FIRST — logos, trademarks, and what this actually produces
-
-- Real brand logos are **trademarked**. You may **not** ship AI-imitated logos in a live ad product.
-- Image models also render real logos **inaccurately** (wrong glyphs, mangled wordmarks).
-- So this prompt produces **stylized, on-brand "sponsor badge" tiles** — clean wordmark pills in Buddy's
-  mint palette. They read as *intentional design*, look cohesive behind the chat, and are safe for a
-  **demo / hackathon**.
-- **For production:** replace each tile with the brand's **official logo** from its brand-assets / press
-  kit, and only display brands you have a real partnership/ad deal with.
+> Generates the **fictional sponsor logos** that appear behind the chat (the `SponsoredWallpaper`).
+> Companion to `BUDDY_SPRITE_SHEET_PROMPT.md` (mascot/icons). **One sponsor shows at a time** as a tiled
+> single-brand watermark, rotating between sponsors.
 
 ---
 
-## AESTHETIC — same "Soft Mint Plaid" world (so tiles blend into the wallpaper)
+## ✅ These are FAKE brands — on purpose
 
-The wallpaper renders at low opacity (`AD_WALLPAPER_OPACITY = 0.35`) behind chat bubbles, so tiles must be
-**calm, flat, and monochrome-mint** — not loud full-color logos that fight the conversation.
+- Every company below is **invented** (fun, punny, plausible student-y names). That means **no trademark
+  risk** — you can ship these in a live product, not just a demo.
+- Roster is **heavy on food & service** (coffee, eats, sweets, delivery, campus services) — the stuff a
+  student actually buys, so "ad revenue funds the gift cards" reads naturally.
+- Each tile is a **real logo lockup** (a simple emblem + the brand name styled as a wordmark) — **not a
+  plain text pill.** It should look like an actual little brand logo.
+
+---
+
+## AESTHETIC — "Soft Mint Plaid" logos (so they blend behind chat)
+
+The wallpaper renders at low opacity (`AD_WALLPAPER_OPACITY = 0.35`) behind chat bubbles, so logos stay
+**calm, flat, monochrome-mint** — characterful but never fighting the conversation.
 
 **Palette (locked — green + white only):**
 | Token | Hex | Use |
 |---|---|---|
-| White | `#FFFFFF` | pill surface |
-| Canvas | `#F4FAF6` | pale pill fill |
-| Mint mist | `#E4F5EA` | tint fills |
-| Mint 400 | `#8FD3A6` | secondary marks |
-| Green 500 | `#5FBF86` | brand accents |
-| Green 700 | `#3E9B68` | wordmark text / icon |
-| Pine ink | `#1F4A36` | small caption text |
+| White | `#FFFFFF` | knockout / negative space |
+| Canvas | `#F4FAF6` | pale fills |
+| Mint mist | `#E4F5EA` | light fills |
+| Mint 400 | `#8FD3A6` | secondary shapes |
+| Green 500 | `#5FBF86` | primary emblem |
+| Green 700 | `#3E9B68` | wordmark + key strokes |
+| Pine ink | `#1F4A36` | small detail/accents |
 
-- Each tile = a **soft rounded pill / lozenge** with a tiny simple emblem + the brand name as a clean
-  wordmark. Matte, no gloss, consistent weight. Type = rounded geometric sans (Quicksand / Nunito).
-- Emblems are **simplified, generic glyphs** (a cup, a play triangle, a cart) — NOT trademarked marks.
+- **Logo style:** each is a small **emblem/mark above (or beside) a rounded-sans wordmark** — like a
+  cohesive brand logo. Squishy, rounded, matte, no gloss, consistent weight across all 24.
+- Monochrome mint throughout. Distinction comes from the **emblem shape + the name**, not from color.
+- *(Optional for a punchier pitch: give each logo ONE deep-green accent. Default = monochrome mint, which
+  blends best at 0.35 opacity.)*
 
 ---
 
@@ -46,126 +46,117 @@ The wallpaper renders at low opacity (`AD_WALLPAPER_OPACITY = 0.35`) behind chat
 > Paste into your image generator. If 24-in-one drifts, use **SPLIT INTO 3 SHEETS** at the bottom.
 
 ```
-A single sprite sheet of 24 minimalist "sponsor badge" tiles for a calm mint-green app called Buddy.
-Each tile is a soft, rounded pill/lozenge badge containing a tiny simple emblem and a clean wordmark
-brand name in a rounded geometric sans (Quicksand/Nunito style). Premium mobile-app quality.
+A single sprite sheet of 24 fictional brand LOGOS for a calm mint-green app called Buddy. These are made-
+up, fun, student-friendly food & service companies — each a proper little logo: a simple rounded emblem
+PLUS the brand name as a clean wordmark in a rounded geometric sans (Quicksand/Nunito style). Premium
+mobile-app quality. They are original invented brands, NOT real companies and NOT any real logo.
 
 ART DIRECTION "Soft Mint Plaid": calm, flat vector, squishy rounded geometry, gentle soft inner shading.
 No gloss, no hard drop shadows, no harsh outlines. MONOCHROMATIC mint-green + white palette ONLY — NO
-coral, NO yellow, NO other brand colors:
+coral, NO yellow, NO other colors:
   - White #FFFFFF, off-white #F4FAF6
   - Mint mist #E4F5EA, mint #8FD3A6
   - Mint primary #5FBF86, deep green #3E9B68
   - Pine-green ink #1F4A36
-All wordmarks in deep green #3E9B68 on a pale mint pill; emblems in mint/deep green. Every tile the same
-height, same padding, same style. These are STYLIZED generic badges, NOT real corporate logos — use a
-simple original emblem for each, not any trademarked mark.
+Emblems in mint/deep green; wordmarks in deep green #3E9B68. Every logo the same visual size, same style,
+same weight. Cute, calm, fresh.
 
 LAYOUT FOR SEGMENTATION (critical):
-- One PNG, 2048 x 1152 px, FULLY TRANSPARENT background.
-- A clean 4 columns x 6 rows grid = 24 tiles, each centered in a 512 x 192 px cell.
-- Generous padding so NO tile touches its neighbors; clear transparent space between every tile.
-- ABSOLUTELY NO grid lines, frames, borders, background color, captions outside the pills, numbers, or
-  watermarks. No tile cropped at an edge. No shadow bleeding into adjacent cells.
+- One PNG, 2048 x 1536 px, FULLY TRANSPARENT background.
+- A clean 4 columns x 6 rows grid = 24 logos, each centered in a 512 x 256 px cell (emblem stacked above
+  the wordmark).
+- Generous padding (~16% margin) so NO logo touches its neighbors; clear transparent space between all.
+- ABSOLUTELY NO grid lines, frames, borders, background color, captions outside the logos, numbers, or
+  watermarks. No logo cropped at an edge. No shadow bleeding into adjacent cells.
 
-TILES (left-to-right, top-to-bottom) — each is a pill with a tiny emblem + the wordmark:
+LOGOS (left-to-right, top-to-bottom) — each = emblem + the exact brand name as a wordmark:
 
-Row 1 — Coffee & food:
-1. "Starbucks" — emblem: a takeaway coffee cup
-2. "Dunkin'" — emblem: a steaming cup
-3. "Chipotle" — emblem: a rounded burrito/pepper
-4. "DoorDash" — emblem: a little delivery bag
+Row 1 — Coffee & drinks:
+1. "Brewhaha" — emblem: a takeaway coffee cup with a little steam swirl
+2. "Bean There" — emblem: a single rounded coffee bean
+3. "Chai Five" — emblem: a tea cup with a tiny raised-hand/leaf
+4. "Pour Decisions" — emblem: a smoothie cup with a straw
 
-Row 2 — Food delivery & quick eats:
-5. "Uber Eats" — emblem: a fork + leaf
-6. "Panera" — emblem: a soft bread loaf
-7. "Sweetgreen" — emblem: a salad bowl
-8. "Domino's" — emblem: a pizza slice
+Row 2 — Fast & casual eats:
+5. "Fork Yeah" — emblem: a cheerful rounded fork
+6. "Holy Guacamole" — emblem: an avocado half
+7. "Wok This Way" — emblem: a wok with noodles + chopsticks
+8. "Slice Slice Baby" — emblem: a pizza slice
 
-Row 3 — Retail & tech:
-9.  "Amazon" — emblem: a smiling parcel box
-10. "Target" — emblem: concentric rings
-11. "Apple" — emblem: a simple rounded fruit
-12. "Best Buy" — emblem: a price tag
+Row 3 — Sweets & snacks:
+9.  "Crumb Together" — emblem: a cupcake
+10. "Munch Bunch" — emblem: a snack bag
+11. "Sugar Rush" — emblem: a donut
+12. "Scoop Troop" — emblem: an ice-cream cone
 
-Row 4 — Lifestyle & beauty:
-13. "Nike" — emblem: a soft swoosh-like curve
-14. "Lululemon" — emblem: a rounded leaf
-15. "Sephora" — emblem: a lipstick/wand
-16. "Ulta" — emblem: a sparkle
+Row 4 — Delivery & grocery:
+13. "Dorm Dash" — emblem: a delivery scooter with a bag
+14. "Nom Nom Co." — emblem: a takeout box with chopsticks
+15. "Clutch Couriers" — emblem: a parcel with little motion lines
+16. "Cart Smart" — emblem: a rounded shopping cart
 
-Row 5 — Subscriptions & entertainment:
-17. "Spotify" — emblem: three sound waves
-18. "Netflix" — emblem: a play triangle
-19. "Disney+" — emblem: a sparkle castle turret
-20. "Audible" — emblem: a headphone/sound mark
+Row 5 — Campus services:
+17. "Sudsy" — emblem: a soap bubble / laundry swirl
+18. "Cut Above" — emblem: rounded scissors + comb
+19. "Glow Up" — emblem: a hand mirror with a sparkle
+20. "Zen Den" — emblem: a lotus / calm leaf
 
-Row 6 — Student tools & money:
-21. "Notion" — emblem: a simple page/block
-22. "Adobe" — emblem: a rounded triangle
-23. "Venmo" — emblem: a chat-bubble dollar
-24. "Cash App" — emblem: a dollar in a rounded square
+Row 6 — More services:
+21. "Fetch & Co." — emblem: a paw print
+22. "Handy Pandas" — emblem: a friendly wrench
+23. "Rideloop" — emblem: a looped arrow around a tiny car
+24. "Petal Pushers" — emblem: a single rounded flower
 ```
-
----
-
-## ROSTER LOGIC — why these brands
-
-Every brand above is a real **gift-card issuer** *and* a plausible **CPM advertiser to college students**,
-so the sponsor list and the marketplace list are the same partners:
-
-| Marketplace gift card (seed) | Same brand as a wallpaper sponsor |
-|---|---|
-| Amazon, Target, Apple | ✅ rows 3 |
-| Spotify, Starbucks, Chipotle, DoorDash | ✅ rows 1, 3, 5 |
-| Venmo, Cash App | ✅ row 6 |
-
-**Swap freely** (same student-relevant + gift-card criteria): Red Bull, Subway, Dutch Bros, Crumbl,
-GrubHub, Walmart, Nintendo eShop, PlayStation, Xbox, Hulu, Max, Grammarly, Canva, Uber, Lyft, Sephora.
 
 ---
 
 ## SPLIT INTO 3 SHEETS (recommended if 24-in-one drifts)
 
-Reuse the **AESTHETIC** + **LAYOUT** blocks verbatim; change only the grid + tile list:
+Reuse the **ART DIRECTION** + **LAYOUT** blocks verbatim; change only the grid + logo list:
 
-1. **sponsors-food.png** — 4 cols x 2 rows (8) — Rows 1–2 (coffee & food).
-2. **sponsors-retail.png** — 4 cols x 2 rows (8) — Rows 3–4 (retail, lifestyle).
-3. **sponsors-digital.png** — 4 cols x 2 rows (8) — Rows 5–6 (subscriptions, tools, money).
+1. **sponsors-food1.png** — 4 cols x 2 rows (8) — Rows 1–2 (coffee & casual eats).
+2. **sponsors-food2.png** — 4 cols x 2 rows (8) — Rows 3–4 (sweets, snacks, delivery).
+3. **sponsors-services.png** — 4 cols x 2 rows (8) — Rows 5–6 (campus & other services).
 
-Keep cell size 512 x 192 px and the transparent-gap / no-text-outside-pills rules identical.
+Keep cell size 512 x 256 px and the transparent-gap / no-text-outside-logos rules identical.
 
 ---
 
-## WIRING THE TILES INTO THE APP
+## WIRING THE LOGOS INTO THE APP (one sponsor at a time)
 
 The `sponsors` table has a `logoUrl`; `AdBanner.tsx` renders it as `<img object-fit:contain>` and
-`SponsoredWallpaper.tsx` shows **one sponsor at a time** — a single brand's badge tiled as a watermark,
+`SponsoredWallpaper.tsx` shows **one sponsor at a time** — a single brand's logo tiled as a watermark,
 rotating to the next sponsor on an interval. After you generate + slice the sheet:
+
+**Because each asset is now a COMPLETE logo lockup (emblem + name),** `AdBanner` can render the image on
+its own — drop the pill background and the separate company-name text so you don't double up the name.
 
 **Option A — bundle as assets (cleanest for a fixed roster)**
 1. Slice into 24 transparent PNGs → `client/src/assets/sponsors/<brand>.png`.
 2. Import them in a small `client/src/assets/sponsors.ts` map (mirror `assets/sprites.ts`).
-3. In the seed (`server/seed.ts`), set each sponsor's `logoUrl` to the imported URL, or have `AdBanner`
-   look the logo up by `companyName`.
+3. In `server/seed.ts`, set each sponsor's `logoUrl` (or have `AdBanner` look the logo up by
+   `companyName`).
 
 **Option B — host + reference by URL (no rebuild to change sponsors)**
-1. Upload the 24 PNGs somewhere static (Replit static, an S3/bucket, or a CDN).
-2. Put the public URL in each sponsor row's `logoUrl` — via the Admin → Sponsors form, or the seed.
+1. Upload the 24 PNGs to static hosting (Replit static / a bucket / a CDN).
+2. Put each public URL in the sponsor row's `logoUrl` — via Admin → Sponsors, or the seed.
 
-**Update the seed roster** (`server/seed.ts` → `SPONSORS`) to match these brands so a fresh
-`npm run db:seed` shows the real partner set. Each tile's brand name should equal the sponsor's
-`companyName` so lookups line up.
+**Update the seed roster** (`server/seed.ts` → `SPONSORS`) to these fictional brands so a fresh
+`npm run db:seed` shows them. Each entry's `companyName` must exactly match the wordmark on its tile.
+
+> Note: the **marketplace gift cards** can stay real desirable brands (Amazon, Spotify, etc.) since those
+> are what students want to redeem — sponsors and gift-card merchants no longer have to be the same.
+> If you'd rather keep them fully consistent, fictionalize the marketplace items too (e.g. a "Brewhaha
+> $5 card").
 
 ---
 
 ## NOTES
 
-- **One sponsor at a time:** the wallpaper features a single brand (its badge tiled as a watermark) and
-  rotates between sponsors every `SPONSOR_ROTATE_MS` (default 30s). An impression is logged once per
-  sponsor each time it becomes the active brand — not for every sponsor at once.
-- Keep tiles **monochrome mint** even though real ads are full-color — at 0.35 opacity behind chat, color
-  logos look broken; stylized mint pills look designed. (Flip `AD_WALLPAPER_OPACITY` up if you switch to
-  real color logos for a pitch.)
-- For the **revenue slide**: CPM math uses `CPM_RATE_USD` (`client/src/config.ts`) and each sponsor's
-  `cpmRateUsd`; impressions are logged per tile render in `adImpressions`.
+- **One sponsor at a time:** the wallpaper features a single brand (its logo tiled as a watermark) and
+  rotates every `SPONSOR_ROTATE_MS` (default 30s). An impression is logged once per sponsor each time it
+  becomes the active brand — not for every sponsor at once.
+- Keep logos **monochrome mint** even though real ads are full-color — at 0.35 opacity behind chat, color
+  logos look broken; stylized mint logos look designed. (Raise `AD_WALLPAPER_OPACITY` if you go color.)
+- For the **revenue slide:** CPM math uses `CPM_RATE_USD` (`client/src/config.ts`) and each sponsor's
+  `cpmRateUsd`; impressions are logged per active-sponsor render in `adImpressions`.
