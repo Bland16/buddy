@@ -182,34 +182,44 @@
     <div class="kicker">Market size</div>
     <h2>Start with US students, expand outward</h2>
     <div class="grid g3">
-      <div class="card"><div class="stat">~19M<small>TAM — US higher-ed students (NCES, approx.)</small></div></div>
-      <div class="card"><div class="stat">~5M<small>SAM — students at .edu schools we onboard first</small></div></div>
-      <div class="card"><div class="stat">250K<small>SOM — realistic year-1 active users (5% of SAM)</small></div></div>
+      <div class="card"><div class="stat">19.6M<small>TAM — US postsecondary students (NCES/IPEDS, Fall 2024)</small></div></div>
+      <div class="card"><div class="stat">~5M<small>SAM — students at the .edu schools we onboard first (est.)</small></div></div>
+      <div class="card"><div class="stat">250K<small>SOM — year-1 active-user target (~5% of SAM)</small></div></div>
     </div>
     <p style="margin-top:24px">
       College is the perfect wedge: dense <b>.edu</b> networks, advertisers who pay a premium to reach
       18–24s, and a built-in reason to meet new people every semester. Natural expansion: new grads → young
-      professionals → global tertiary (<b>~250M</b> students worldwide).
+      professionals → global tertiary — <b>264M</b> students worldwide and growing (UNESCO, 2023).
     </p>
-    <p class="muted">Figures are estimates for illustration; SAM/SOM scale with school rollout.</p>
+    <p class="muted">TAM &amp; global figures: NCES/IPEDS (2024) and UNESCO (2023). SAM/SOM are internal estimates that scale with school rollout.</p>
     <div class="footer"><span><span class="dot"></span>Buddy</span><span>06</span></div>
   </section>
 
   <!-- 7 · PROFITABILITY -->
   <section class="slide">
     <div class="kicker">Profitability</div>
-    <h2>Ad revenue per user &gt; reward cost per user</h2>
-    <div class="grid g3">
-      <div class="card"><div class="stat">~$2.50<small>CPM per 1,000 sponsor impressions</small></div></div>
-      <div class="card"><div class="stat">~$3–4<small>Est. ad revenue / active user / month</small></div></div>
-      <div class="card"><div class="stat">~$1<small>Est. gift-card payout / active user / month</small></div></div>
+    <h2>Margin is positive <em>by design</em></h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>Modeled unit economics · per active user / month</h3>
+        <p style="margin-top:6px">+ Ad revenue &nbsp;<b>~$2.50</b><br/><small style="color:#6b8a7a">≈1,000 sponsor impressions × $2.50 CPM (mid display range; 18–24 premium)</small></p>
+        <p style="margin-top:12px">– Gift-card rewards &nbsp;<b>~$0.80</b><br/><small style="color:#6b8a7a">a server-side dial, capped below ad revenue</small></p>
+        <p style="margin-top:12px">– Claude moderation &nbsp;<b>~$0.40</b><br/><small style="color:#6b8a7a">forced tool-call + prompt-cached system prompt</small></p>
+        <p style="margin-top:12px">– Stripe + infra &nbsp;<b>~$0.15</b></p>
+        <hr style="border:none;border-top:1px solid var(--mint-soft);margin:14px 0"/>
+        <p class="stat" style="font-size:clamp(26px,3.5vw,40px)">≈ +$1.15<small>contribution margin / user / month</small></p>
+      </div>
+      <div>
+        <h3>The structural edge</h3>
+        <ul>
+          <li>Our biggest variable cost — <b>rewards</b> — is a single config dial (the point-drop rate), so we
+            cap payouts at a fixed % of ad revenue. <b>Margin can't go negative at scale.</b></li>
+          <li><b>Reality check:</b> Snapchat's North America ARPU is ~$7.67/quarter across its <i>whole</i> ad
+            stack — so a single banner unit at ~$2.50/mo is conservative, with room to grow as we add formats.</li>
+        </ul>
+        <p class="muted">Benchmarks: US display CPM $1–10 (programmatic ~$2, Google Display $2–5); Snap Q2-2024 NA ARPU $7.67. Internal model; assumptions configurable per market.</p>
+      </div>
     </div>
-    <div class="card" style="margin-top:22px">
-      <h3>Contribution margin is positive — and tunable</h3>
-      <p>Both levers are dials we control in config: the <b>point-drop rate</b> sets reward cost, and
-      <b>impressions × CPM</b> sets revenue. We can hold payouts below ad income at any scale.</p>
-    </div>
-    <p class="muted">Illustrative unit economics; assumptions are configurable per market.</p>
     <div class="footer"><span><span class="dot"></span>Buddy</span><span>07</span></div>
   </section>
 
